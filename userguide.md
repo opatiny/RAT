@@ -1,12 +1,12 @@
 ## Parameters
 
-A: Red intensity (0 -> 255)
-B: Green intensity (0 -> 255)
-C: Blue intensity (0 -> 255)
-D: Pump intensity (0 -> 255)
-E: Number of color (0 -> 32000)
-F: Saturation (0 -> 1000)
-G: Brightness (0 -> 1000)
+* A: Red intensity (0 -> 255)
+* B: Green intensity (0 -> 255)
+* C: Blue intensity (0 -> 255)
+* D: Pump intensity (0 -> 255)
+* E: Number of color (0 -> 32000)
+* F: Saturation (0 -> 1000)
+* G: Brightness (0 -> 1000)
 
 ## Connect
 
