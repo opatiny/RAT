@@ -17,23 +17,25 @@ NIL_THREAD(ThreadAction1, arg) {
   while (true) {
     int numColors = getParameter(PARAM_NB_COLORS);;
 
-    float colorNumber = counter > numColors ? counter - numColors : counter;
-    float saturation = float(getParameter(PARAM_COLOR_SATURATION))/1000; // Between 0 and 1 (0 = gray, 1 = full color)
-    float brightness = float(getParameter(PARAM_COLOR_BRIGHTNESS))/1000; // Between 0 and 1 (0 = dark, 1 is full brightness)
-    float hue = (colorNumber / float(numColors)) * 360; // Number between 0 and 360
-    long color = HSBtoRGB(hue, saturation, brightness);
+    if (numColors > 1) {
 
-    // Get the red, blue and green parts from generated color
-    int red = color >> 16 & 255;
-    int green = color >> 8 & 255;
-    int blue = color & 255;
+      float colorNumber = counter > numColors ? counter - numColors : counter;
+      float saturation = float(getParameter(PARAM_COLOR_SATURATION)) / 1000; // Between 0 and 1 (0 = gray, 1 = full color)
+      float brightness = float(getParameter(PARAM_COLOR_BRIGHTNESS)) / 1000; // Between 0 and 1 (0 = dark, 1 is full brightness)
+      float hue = (colorNumber / float(numColors)) * 360; // Number between 0 and 360
+      long color = HSBtoRGB(hue, saturation, brightness);
 
-    counter = (counter + 1) % (numColors * 2);
+      // Get the red, blue and green parts from generated color
+      int red = color >> 16 & 255;
+      int green = color >> 8 & 255;
+      int blue = color & 255;
 
-    setParameter(PARAM_RED, red);
-    setParameter(PARAM_GREEN, green);
-    setParameter(PARAM_BLUE, blue);
+      counter = (counter + 1) % (numColors * 2);
 
+      setParameter(PARAM_RED, red);
+      setParameter(PARAM_GREEN, green);
+      setParameter(PARAM_BLUE, blue);
+    }
 
     action1Step++;
     if (action1Step == 256) action1Step = 0;

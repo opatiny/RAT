@@ -14,8 +14,8 @@
 #define IO4     22
 #define IO5     8
 #define RED1    9
-#define GREEN1  11
-#define BLUE1   5
+#define GREEN1  5
+#define BLUE1   11
 #define RED2    16
 #define GREEN2  18
 #define BLUE2   23

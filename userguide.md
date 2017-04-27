@@ -20,4 +20,9 @@ Using this you are connected to the arduino and you have various options:
 * `G1000` set intensity to half full power
 * `D127` half the power of the pump
 
+## Color in manual mode
+
+* `A0,0,255` Change parameters A, B and C (blue color)
+* `E1` We have only one color, we go in manual mode
+
 
