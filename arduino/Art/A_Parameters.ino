@@ -1,6 +1,6 @@
 #include <avr/eeprom.h>
 
-#define MAX_PARAM 26
+#define MAX_PARAM 16
 
 #define PARAM_RED               0
 #define PARAM_GREEN             1
@@ -10,12 +10,11 @@
 #define PARAM_COLOR_SATURATION  5
 #define PARAM_COLOR_BRIGHTNESS  6
 
-#define PARAM_ACTION1        20
-#define PARAM_ACTION2        21
-#define PARAM_ACTION3        22
-#define PARAM_ACTION4        23
-
-#define PARAM_STATUS         25 // allow to test the arduino
+#define PARAM_ACTION1        10
+#define PARAM_ACTION2        11
+#define PARAM_ACTION3        12
+#define PARAM_ACTION4        13
+#define PARAM_STATUS         15 // allow to test the arduino
 
 
 
