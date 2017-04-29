@@ -1,6 +1,6 @@
 #include <NilRTOS.h>
 #include <avr/wdt.h>
-#include <Time.h>
+#include <TimeLib.h>
 
 
 #define OUT1    6

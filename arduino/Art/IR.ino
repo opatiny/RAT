@@ -100,11 +100,12 @@ void eventIR(int irCode) {
           else {
             setAndSaveParameter(PARAM_NB_COLORS, 1000);
           }
+          break;
         case BUTTON_AUTO:
-          setParameter(PARAM_NB_COLORS, 0);
-          setParameter(PARAM_RED, 0);
-          setParameter(PARAM_GREEN, 0);
-          setParameter(PARAM_BLUE, 255);
+          setAndSaveParameter(PARAM_NB_COLORS, 0);
+          setAndSaveParameter(PARAM_RED, 0);
+          setAndSaveParameter(PARAM_GREEN, 0);
+          setAndSaveParameter(PARAM_BLUE, 255);
           break;
 
         default:
