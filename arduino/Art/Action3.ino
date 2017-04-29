@@ -14,10 +14,16 @@ NIL_THREAD(ThreadAction3, arg) {
 
 
   while (TRUE) {
-    analogWrite(RED1, getParameter(PARAM_RED));
+
+        if (getParameter(PARAM_POWER) & 1<<BIT_ENABLE_LIGHT) {
+     analogWrite(RED1, getParameter(PARAM_RED));
     analogWrite(GREEN1, getParameter(PARAM_GREEN));
     analogWrite(BLUE1, getParameter(PARAM_BLUE));
-
+    } else {
+     analogWrite(RED1, 0);
+    analogWrite(GREEN1, 0);
+    analogWrite(BLUE1, 0);
+    }
 
     action3Step++;
     setParameter(PARAM_ACTION3, action3Step);

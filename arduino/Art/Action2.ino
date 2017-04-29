@@ -10,8 +10,12 @@ NIL_THREAD(ThreadAction2, arg) {
 
   while (true) {
 
-    SoftPWMSet(IO1, getParameter(PARAM_PUMP));
-
+    if (getParameter(PARAM_POWER) & 1<<BIT_ENABLE_PUMP) {
+      SoftPWMSet(IO1, getParameter(PARAM_PUMP));
+    } else {
+      SoftPWMSet(IO1, 0);
+    }
+    
     nilThdSleepMilliseconds(40);
 
     action2Step++;

@@ -14,7 +14,12 @@
 #define PARAM_ACTION2        11
 #define PARAM_ACTION3        12
 #define PARAM_ACTION4        13
-#define PARAM_STATUS         15 // allow to test the arduino
+#define PARAM_POWER          15 // enabled if 3 
+
+#define BIT_ENABLE_PUMP     0
+#define BIT_ENABLE_LIGHT    1
+
+
 
 
 
@@ -27,6 +32,8 @@ void resetParameter() {
   setAndSaveParameter(PARAM_NB_COLORS,2047);
   setAndSaveParameter(PARAM_COLOR_SATURATION,1000);
   setAndSaveParameter(PARAM_COLOR_BRIGHTNESS,1000);
+setAndSaveParameter(PARAM_POWER,1000);
+  
 }
 
 
@@ -52,7 +59,6 @@ int parameters[MAX_PARAM];
 void setupParameters() {
   //We copy all the value in the parameters table
   eeprom_read_block((void*)parameters, (const void*)EE_START_PARAM, MAX_PARAM*2);
-  setAndSaveParameter(PARAM_STATUS,0);
 }
 
 int getParameter(byte number) {
@@ -98,6 +104,14 @@ void setAndSaveParameter(byte number, int value) {
   eeprom_write_word((uint16_t*) EE_START_PARAM+number, value);
 }
 
+
+void incrementAndSaveParameter(byte number, int stepValue, int maxValue) {
+  setAndSaveParameter(number, min(parameters[number]+stepValue, maxValue));
+}
+
+void decrementAndSaveParameter(byte number, int stepValue, int minValue) {
+  setAndSaveParameter(number, max(parameters[number]-stepValue, minValue));
+}
 
 void printParameter(Print* output, byte number){
   output->print(number);
