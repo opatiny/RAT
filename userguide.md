@@ -1,8 +1,8 @@
 ## Remote control
 
 * Power: on / off 
-* Up: 
-* Down: 
+* Up: increase pump speed (max 250)
+* Down: decrease pump speed (min 70)
 * No audio: Reset to default parameters
 * Left: slower color change (increase nb colors by 250)
 * Right: faster color change (decrease nb colors by 250)
