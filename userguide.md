@@ -1,12 +1,31 @@
+## Remote control
+
+* Power: on / off 
+* Up: 
+* Down: 
+* No audio: Reset to default parameters
+* Left: slower color change (increase nb colors by 250)
+* Right: faster color change (decrease nb colors by 250)
+* Auto: Change the color mode (see below) from 0 -> 6
+
 ## Parameters
 
 * A: Red intensity (0 -> 255)
 * B: Green intensity (0 -> 255)
 * C: Blue intensity (0 -> 255)
-* D: Pump intensity (0 -> 255)
-* E: Number of color (0 -> 32000)
-* F: Saturation (0 -> 1000)
-* G: Brightness (0 -> 1000)
+* D: Pump intensity (0 -> 255) : default 127
+* E: Number of color (0 -> 32000), 25 colors per second
+* F: Saturation (0 -> 1000) : default 1000
+* G: Brightness (0 -> 1000) : default 1000
+* H: color mode
+  * 0 : changing color
+  * 1 : fixed color
+  * 2 : red
+  * 3 : green
+  * 4 : blue
+  * 5 : red + blue
+  * 6 : black
+* P: status : 0 off, 1 pump, 2 light, 3 pump + lignt
 
 ## Connect
 
