@@ -1,7 +1,5 @@
 #define THR_ACTION1 1
 
-#include <SoftPWM.h>
-
 NIL_WORKING_AREA(waThreadAction1, 100);
 NIL_THREAD(ThreadAction1, arg) {
 
@@ -43,10 +41,6 @@ NIL_THREAD(ThreadAction1, arg) {
     nilThdSleepMilliseconds(40);
   }
 }
-
-
-
-
 
 long HSBtoRGB(float _hue, float _sat, float _brightness) {
   float red = 0.0;

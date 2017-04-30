@@ -24,9 +24,6 @@ byte buttons[7] = {
 void irInterrupt() {
   long unsigned timeCurrent = micros();
 
-
-
-
   if (timeCurrent - timeLast > 2000 || timeCurrent < timeLast) {
     timeLast = timeCurrent;
     currentBit = 0;
@@ -84,28 +81,22 @@ void eventIR(int irCode) {
           incrementAndSaveParameter(PARAM_PUMP, 10, 250);
           break;
         case BUTTON_DOWN:
-          decrementAndSaveParameter(PARAM_PUMP, 10, 80);
+          decrementAndSaveParameter(PARAM_PUMP, 10, 70);
           break;
           break;
         case BUTTON_RIGHT:
+          setParameter(PARAM_FIXED_COLOR, 0);
           decrementAndSaveParameter(PARAM_NB_COLORS, 250, 100);
           break;
         case BUTTON_LEFT:
+          setParameter(PARAM_FIXED_COLOR, 0);
           incrementAndSaveParameter(PARAM_NB_COLORS, 250, 30000);
           break;
-        case BUTTON_SOUND:
-          if (getParameter(PARAM_NB_COLORS) > 0) {
-            setAndSaveParameter(PARAM_NB_COLORS, 0);
-          }
-          else {
-            setAndSaveParameter(PARAM_NB_COLORS, 1000);
-          }
+        case BUTTON_SOUND: // reset
+          resetParameter();
           break;
         case BUTTON_AUTO:
-          setAndSaveParameter(PARAM_NB_COLORS, 0);
-          setAndSaveParameter(PARAM_RED, 0);
-          setAndSaveParameter(PARAM_GREEN, 0);
-          setAndSaveParameter(PARAM_BLUE, 255);
+          setParameter(PARAM_FIXED_COLOR, (getParameter(PARAM_FIXED_COLOR) + 1) % 7);
           break;
 
         default:
@@ -114,12 +105,13 @@ void eventIR(int irCode) {
           break;
       }
 
-
-      Serial.print(i);
-      Serial.print(" - ");
-      Serial.print(irCode, BIN);
-      Serial.print(" - ");
-      Serial.println(irCode);
+      /*
+            Serial.print(i);
+            Serial.print(" - ");
+            Serial.print(irCode, BIN);
+            Serial.print(" - ");
+            Serial.println(irCode);
+      */
     }
   }
 }
